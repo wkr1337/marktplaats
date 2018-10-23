@@ -34,6 +34,30 @@ class Controller {
             return $db;
         }
     }
+
+    public static function checkVariables() {
+        if (!isset($_SESSION)) {
+            session_start();
+            if (!isset($_SESSION['logged_in'])){
+                    $_SESSION['logged_in'] = false;
+        
+            }
+        }
+        
+        if (isset($_POST['loginButton'])) {
+            AuthController::login();
+        }        
+        if (isset($_POST['logoutButton'])) {
+            AuthController::logout();
+        }
+        if (isset($_POST['registerButton'])) {
+            AuthController::register();
+        }
+        
+        if (count(Controller::$errors) != 0) {
+            PagesController::showErrors();
+        }
+    }
 }
 
 
