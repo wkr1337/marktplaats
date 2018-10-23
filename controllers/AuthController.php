@@ -30,7 +30,9 @@ class AuthController extends Controller {
                 array_push($errors, "Your login name or password is invalid!");
             }
         }
-        return $_SESSION['logged_in'];
+        Controller::$errors = $errors;
+
+        // return $_SESSION['logged_in'];
     
     }
 
@@ -81,7 +83,8 @@ class AuthController extends Controller {
                 return true;
         }
         
-        } 
+        }
+        Controller::$errors = $errors;
         return false;
 
 

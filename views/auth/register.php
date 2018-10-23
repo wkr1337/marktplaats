@@ -2,7 +2,7 @@
 <div id="modal-register-div" class="modal-register">
   <span onclick="document.getElementById('modal-register-div').style.display='none'" class="close
   " title="Close Modal">&times;</span>
-  <form class="modal-register-content animate" action="index.php" method="post">
+  <form class="modal-register-content animate" action="index" method="post">
     <div class="container-login">
       <h1>Sign Up</h1>
       <p>Please fill in this form to create an account.</p><br>

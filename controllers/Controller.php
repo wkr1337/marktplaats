@@ -2,6 +2,7 @@
 class Controller {
 
     static $config;
+    static $errors;
 
     public static function config($key = '') {
         if (empty($errors)) {
@@ -16,6 +17,12 @@ class Controller {
         
     }
 
+    public static function setErrors($errors) {
+        foreach($errors as $error) {
+            array_push(self::$errors, $error);
+        }
+
+    }
 
     public static function connectDatabase() {
         // attempt to connect to database

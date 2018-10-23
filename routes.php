@@ -10,17 +10,17 @@ if (!isset($_SESSION)) {
 
 if (isset($_POST['loginButton'])) {
     AuthController::login();
-    echo "<br><br><br><br><br><br><h1>Logged IN!!</h1>";
-
 }        
 if (isset($_POST['logoutButton'])) {
     AuthController::logout();
-    echo "<br><br><br><br><br><br><h1>Logged OUT!!</h1>";
 }
 if (isset($_POST['registerButton'])) {
     AuthController::register();
 }
 
+if (count(Controller::$errors) != 0) {
+    PagesController::showErrors();
+}
 
 
 Route::set('index', function(){
