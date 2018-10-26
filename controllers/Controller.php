@@ -2,7 +2,7 @@
 class Controller {
 
     static $config;
-    static $errors;
+    static $errors = [];
 
     public static function config($key = '') {
         if (empty($errors)) {
@@ -10,7 +10,7 @@ class Controller {
         }
         self::$config = [
             'dbConnect' => self::connectDatabase(),
-            'errors' => $errors
+            'errors' => self::$errors
         ];
 
         return isset(self::$config[$key]) ? self::$config[$key] : null;

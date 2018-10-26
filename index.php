@@ -1,5 +1,4 @@
 <?php 
-// echo $_GET['url'];
 require_once('routes.php');
 
 function __autoload($class_name) {

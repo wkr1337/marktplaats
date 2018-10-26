@@ -1,7 +1,5 @@
 <?php
 Controller::checkVariables();
-
-
 Route::set('index', function(){
     PagesController::index();
 });

@@ -30,15 +30,12 @@ class AuthController extends Controller {
                 array_push($errors, "Your login name or password is invalid!");
             }
         }
-        Controller::$errors = $errors;
-
-        // return $_SESSION['logged_in'];
-    
+        Controller::$errors = $errors;    
     }
 
     public static function register() {
         $db = Controller::config("dbConnect");
-        $errors = Controller::config("errors");
+        $errors = Controller::$errors;
 
         // recieve the input values of the form
         $userName = mysqli_real_escape_string($db, $_POST['userName']);
@@ -59,7 +56,7 @@ class AuthController extends Controller {
         if ($password1 != $password2) {
             array_push($errors, "The two passwords do not match");
         }
-        if (count($errors == 0)) {
+        if (count($errors) == 0) {
             // first check the database to make sure
             // a user does not already exists with the same username and/or email
             $userCheckQuery = "SELECT * FROM users WHERE user_name = '$userName' OR email = '$email' LIMIT 1";

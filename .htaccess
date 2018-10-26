@@ -1,2 +1,4 @@
 RewriteEngine On
+RewriteCond $1 !^(public)
+
 RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]
